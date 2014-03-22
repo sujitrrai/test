@@ -1,0 +1,103 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible",content="IE=edge")
+        meta(name="viewport",content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
+        link(rel="stylesheet",href="lib/bootstrap/css/bootstrap.css")
+        link(href="lib/bootstrap/css/bootstrap-responsive.min.css", rel="stylesheet")
+        link(href="lib/bootstrap/css/bootstrap-theme.min.css", rel="stylesheet")
+        link(href="lib/test.css", rel="stylesheet")
+        link(rel="stylesheet",href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css")
+        title= title
+    body
+        .navbar.navbar-default(role="navigation")
+            
+                .navbar-header
+                    button(type="button",class="navbar-toggle",data-toggle="collapse",data-target="#lf-navbar-collapse-1")
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href="#")
+                        img(src="images/logo.png",style="height:25px")
+                .collapse.navbar-collapse(id="lf-navbar-collapse-1")
+                    .navbar-rb-search
+                        .form-group.col-lg-4.col-md-3.col-sm-2.col-lg-offset-2.col-md-offset-2.col-sm-offset-2
+                            input.form-control(style="position:relative;top:5px",type="text",placeholder="search for a shipment id, name or roam id",submit="")
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href="#")
+                                span.glyphicon.glyphicon-home
+                        li
+                            a(href="#") routes
+                        li
+                            a(href="#") shipments
+                        li
+                            a.dropdown-toggle(href="#",data-toggle="dropdown")
+                                span.glyphicon.glyphicon-user #{idname}
+                                    b.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href="#") Logout
+        .col-lg-3.col-md-3
+            div.tabbable
+                ul.nav.nav-pills.nav-justified
+                    li.active.test-border.test-tab
+                        a(href="#tab1",data-toggle="tab") alerts 
+                            - var count=alerts.length
+                                span.badge #{count}
+                    li.test-border.test-tab
+                        a(href="#tab2",data-toggle="tab") active 
+                            - var count=active.length
+                                span.badge #{count}
+                    li.test-border.test-tab
+                        a(href="#tab3",data-toggle="tab") completed 
+                            - var count=completed.length
+                                span.badge #{count}
+                    li.test-border.test-tab
+                        a(href="#tab4",data-toggle="tab") Bees 
+                            - var count=bees.length
+                                span.badge #{count}
+                .tab-content.test-tab-content
+                    .tab-pane.active(id="tab1")
+                        each alert in alerts
+                            .panel.panel-success.test-hover
+                                .panel-body
+                                    .test-body    
+                                        a.h5(href="#").test-id #{alert.id}
+                                        span.pull-right
+                                            img(src='images/bat-mid.png')
+                                        p.test-name #{alert.routename}
+                                        span.test-add #{alert.time}-#{alert.address}
+                    .tab-pane(id="tab2")
+                        each act in active
+                            .panel.panel-success.test-hover
+                                .panel-body
+                                    .test-body
+                                        a.h5(href="#").test-id #{act.id}
+                                        p.test-name #{act.routename}
+                                        span.test-add #{act.time}-#{act.address}
+                    .tab-pane(id="tab3")
+                        each com in completed
+                            .panel.panel-success.test-hover
+                                .panel-body
+                                    .test-body
+                                        a.h5(href="#").test-id #{com.id}
+                                        p.test-name #{com.routename}
+                                        span.test-add #{com.time}-#{com.address}
+                    .tab-pane(id="tab4")
+                        each bee in bees
+                            .panel.panel-success.test-hover
+                                .panel-body
+                                    .test-body
+                                        a.h5(href="#").test-id #{bee.id}
+                                        p.test-name #{bee.routename}
+                                        span.test-add #{bee.time}-#{bee.address}
+        .col-lg-9.col-md-9(id='map')
+            .col-lg-4.col-lg-offset-6.col-md-4.col-md-offset-6.test-map-text
+                span.glyphicon.glyphicon-align-justify
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")
+        script(src="lib/bootstrap/js/bootstrap.min.js")
+        script(src="lib/leaflet/leaflet-src.js")
+        script(src='javascripts/map.js')

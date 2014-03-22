@@ -1,0 +1,56 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+html,body,#map{
+	height: 100%;
+}
+.test-border{
+	border:1px solid #C0C0C0;
+	border-radius:5px;
+}
+.test-hover:hover{
+	background-color: #E8E8E8;
+}
+.test-name{
+	color: #00CCFF;
+}
+.test-id{
+	color: blue;
+}
+.test-body{
+	width:inherit;
+	overflow: auto;
+	font-size: 80%;
+}
+.test-arrow{
+	display: inline-block;
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid green;
+	padding-right: 5px;
+}
+.test-tricontainer{
+
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.test-tab-content{
+	position: relative;
+	top : 10px;
+	height : 550px;
+	overflow-y : scroll;
+}
+.test-map-text{
+	position: absolute;
+	bottom : -20px;
+	z-index: 1;
+	width: 33%;
+	opacity: 1;
+	height: 50px;
+}
